@@ -20,7 +20,7 @@
       - @products.each do |product|
         %tr
           %td= product.name
-          %td= product.category
+          %td= product.category.name
           %td= product.price
           %td= product.description
           %td= link_to 'Show', product
