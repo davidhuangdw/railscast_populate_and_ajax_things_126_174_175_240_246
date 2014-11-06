@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :people
 
-  resources :products, concerns: :paginatable
+  resources :products#, concerns: :paginatable
 
   resources :categories
 

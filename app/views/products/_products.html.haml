@@ -1,13 +1,17 @@
 = paginate @products, remote:true
 = page_entries_info @products
 
+= hidden_field_tag :sort, params[:sort]
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :page, params[:page]
+
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
-        %th Name
-        %th Category
-        %th Price
+        %th= sortable 'name'
+        %th= sortable 'category'
+        %th= sortable 'price'
         %th Description
         %th
         %th
