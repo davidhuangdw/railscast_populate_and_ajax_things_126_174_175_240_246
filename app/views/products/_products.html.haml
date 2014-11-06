@@ -1,9 +1,13 @@
 = paginate @products, remote:true
 = page_entries_info @products
 
-= hidden_field_tag :sort, params[:sort]
-= hidden_field_tag :direction, params[:direction]
 = hidden_field_tag :page, params[:page]
+= form_tag products_path, method:'get',remote:true do
+  = text_field_tag :search, params[:search]
+  = submit_tag "Search"
+
+  = hidden_field_tag :sort, params[:sort]
+  = hidden_field_tag :direction, params[:direction]
 
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover

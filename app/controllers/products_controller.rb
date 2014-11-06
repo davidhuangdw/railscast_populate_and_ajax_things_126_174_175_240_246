@@ -4,7 +4,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.order(sort_param+" "+direction_param).page(params[:page]).per(5)
+    @products = Product.includes(:category).search(params[:search])
+      .order_column(sort_param,direction_param)
+      .page(params[:page]).per(5)
   end
 
   # GET /products/1
@@ -73,9 +75,9 @@ class ProductsController < ApplicationController
     end
 
     def sort_param
-      params[:sort] || 'name'
+      params[:sort].presence || 'name'
     end
     def direction_param
-      params[:direction] || 'asc'
+      params[:direction].presence || 'asc'
     end
 end
