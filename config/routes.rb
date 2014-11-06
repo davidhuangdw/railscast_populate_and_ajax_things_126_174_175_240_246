@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+
   resources :people
 
-  resources :products
+  resources :products, concerns: :paginatable
 
   resources :categories
 
