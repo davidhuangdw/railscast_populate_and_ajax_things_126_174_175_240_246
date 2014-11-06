@@ -1,0 +1,28 @@
+.page-header
+  = link_to people_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_person_path(@person), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show person
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @person.name
+  %dt Company:
+  %dd= @person.company
+  %dt Phone:
+  %dd= @person.phone
+  %dt Country:
+  %dd= @person.country
+  %dt State:
+  %dd= @person.state
+  %dt City:
+  %dd= @person.city
+  %dt Zip:
+  %dd= @person.zip
+  %dt Street:
+  %dd= @person.street
+  %dt Email:
+  %dd= @person.email
